@@ -14,6 +14,13 @@ import net.minecraft.item.Item;
 import java.util.HashMap;
 
 public class RangedWeaponAPICompat {
+    /** Ticks a vanilla bow pull takes, the baseline {@link RangedConfig#pull_time_bonus()} (in seconds) is added to. */
+    private static final float BASELINE_PULL_TIME_TICKS = 20F;
+    /** Speed of an arrow shot from a fully drawn vanilla bow. */
+    private static final float BOW_BASELINE_VELOCITY = 3.0F;
+    /** Speed of a bolt shot from a vanilla crossbow. */
+    private static final float CROSSBOW_BASELINE_VELOCITY = 3.15F;
+
     public static void init() {
         var items = new HashMap<IRangedWeaponID, Item>();
         items.putAll(BowsID.getItemsEnum());
@@ -35,7 +42,14 @@ public class RangedWeaponAPICompat {
                     ? speed
                     : standardPullTime * (20.0 / (float)speed);
             var velocity = (id.getWeaponItemStats().range / 15.0f) * 3.0;
-            ((CustomRangedWeapon)item).setRangedWeaponConfig(new RangedConfig((int) pullTime, (float) damage, (float) velocity));
+
+            // Ranged Weapon API 2.x takes the pull time as a bonus in seconds over the vanilla 1 second
+            // draw, and the velocity as a bonus over the weapon type's baseline speed.
+            // Velocities below the baseline mean "no custom velocity", as the attribute cannot go negative.
+            var pullTimeBonus = ((int) pullTime - BASELINE_PULL_TIME_TICKS) / BASELINE_PULL_TIME_TICKS;
+            var baselineVelocity = isCrossbow ? CROSSBOW_BASELINE_VELOCITY : BOW_BASELINE_VELOCITY;
+            var velocityBonus = Math.max(0F, (float) velocity - baselineVelocity);
+            ((CustomRangedWeapon)item).setRangedWeaponConfig(new RangedConfig((float) damage, pullTimeBonus, velocityBonus));
         }
     }
 }
