@@ -1,6 +1,6 @@
 /*
 Timefall Development License 1.2
-Copyright (c) 2020-2024. Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
+Copyright (c) 2020-2026. Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
 
 This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
 */
@@ -9,6 +9,7 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
+import chronosacaria.mcdw.api.util.RangedAttackHelper;
 import chronosacaria.mcdw.bases.McdwShortbow;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.registries.ItemsRegistry;
@@ -27,10 +28,10 @@ import java.util.Map;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum ShortbowsID implements IRangedWeaponID, IInnateEnchantment {
-    BOW_LOVE_SPELL_BOW(     true, ToolMaterials.IRON, 3, 9, 8f, "minecraft:iron_ingot"),
-    BOW_MECHANICAL_SHORTBOW(true, ToolMaterials.IRON, 4, 9, 9f, "minecraft:iron_ingot"),
-    BOW_PURPLE_STORM(       true, ToolMaterials.IRON, 3, 9, 8f, "minecraft:iron_ingot"),
-    BOW_SHORTBOW(           true, ToolMaterials.IRON, 3, 9, 8f, "minecraft:planks");
+    BOW_LOVE_SPELL_BOW(     true, ToolMaterials.IRON, 3, RangedAttackHelper.mcdw$getBowDrawSpeed(0.5f), 8f, "minecraft:iron_ingot"),
+    BOW_MECHANICAL_SHORTBOW(true, ToolMaterials.IRON, 3, RangedAttackHelper.mcdw$getBowDrawSpeed(0.4f), 9f, "minecraft:iron_ingot"),
+    BOW_PURPLE_STORM(       true, ToolMaterials.IRON, 3, RangedAttackHelper.mcdw$getBowDrawSpeed(0.5f), 8f, "minecraft:iron_ingot"),
+    BOW_SHORTBOW(           true, ToolMaterials.IRON, 3, RangedAttackHelper.mcdw$getBowDrawSpeed(0.5f), 8f, "minecraft:planks");
 
     private final boolean isEnabled;
     private final ToolMaterial material;
@@ -45,10 +46,11 @@ public enum ShortbowsID implements IRangedWeaponID, IInnateEnchantment {
         this.material = material;
         if (FabricLoader.getInstance().isModLoaded("ranged_weapon_api")) {
             this.projectileDamage = projectileDamage;
+            this.drawSpeed = drawSpeed;
         } else {
             this.projectileDamage = 0;
+            this.drawSpeed = 0;
         }
-        this.drawSpeed = drawSpeed;
         this.range = range;
         this.repairIngredient = repairIngredient;
     }

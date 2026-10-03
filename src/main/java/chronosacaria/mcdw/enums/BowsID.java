@@ -1,6 +1,6 @@
 /*
 Timefall Development License 1.2
-Copyright (c) 2020-2024. Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
+Copyright (c) 2020-2026. Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
 
 This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
 */
@@ -9,6 +9,7 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
+import chronosacaria.mcdw.api.util.RangedAttackHelper;
 import chronosacaria.mcdw.bases.McdwBow;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.registries.ItemsRegistry;
@@ -28,36 +29,36 @@ import java.util.Map;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum BowsID implements IRangedWeaponID, IInnateEnchantment {
-    BOW_ANCIENT_BOW(       true, ToolMaterials.NETHERITE, 7, 14, 18f, "minecraft:netherite_scrap"),
-    BOW_BONEBOW(           true, ToolMaterials.STONE,     5, 16, 12f, "minecraft:bone"),
-    BOW_BUBBLE_BOW(        true, ToolMaterials.IRON,      5, 15, 12f, "minecraft:iron_ingot"),
-    BOW_BUBBLE_BURSTER(    true, ToolMaterials.DIAMOND,   5, 15, 13f, "minecraft:diamond"),
-    BOW_BURST_GALE_BOW(    true, ToolMaterials.DIAMOND,   6, 12, 16f, "minecraft:diamond"),
-    BOW_CALL_OF_THE_VOID(  true, ToolMaterials.NETHERITE, 6, 15, 16f, "minecraft:netherite_scrap"),
-    BOW_ECHO_OF_THE_VALLEY(true, ToolMaterials.DIAMOND,   6, 11, 16f, "minecraft:diamond"),
-    BOW_ELITE_POWER_BOW(   true, ToolMaterials.IRON,      6, 20, 15f, "minecraft:iron_ingot"),
-    BOW_GREEN_MENACE(      true, ToolMaterials.DIAMOND,   5, 17, 13f, "minecraft:diamond"),
-    BOW_HAUNTED_BOW(       true, ToolMaterials.NETHERITE, 6, 18, 16f, "minecraft:netherite_scrap"),
-    BOW_HUNTERS_PROMISE(   true, ToolMaterials.IRON,      6, 15, 16f, "minecraft:iron_ingot"),
-    BOW_HUNTING_BOW(       true, ToolMaterials.IRON,      6, 16, 15f, "minecraft:iron_ingot"),
-    BOW_LOST_SOULS(        true, ToolMaterials.NETHERITE, 6, 12, 17f, "minecraft:netherite_scrap"),
-    BOW_MASTERS_BOW(       true, ToolMaterials.IRON,      6, 17, 16f, "minecraft:iron_ingot"),
-    BOW_NOCTURNAL_BOW(     true, ToolMaterials.DIAMOND,   6, 17, 14f, "minecraft:diamond"),
-    BOW_PHANTOM_BOW(       true, ToolMaterials.DIAMOND,   6, 20, 14f, "minecraft:diamond"),
-    BOW_PINK_SCOUNDREL(    true, ToolMaterials.DIAMOND,   5, 17, 13f, "minecraft:diamond"),
-    BOW_POWER_BOW(         true, ToolMaterials.IRON,      6, 20, 14f, "minecraft:iron_ingot"),
-    BOW_SABREWING(         true, ToolMaterials.DIAMOND,   5, 10, 13f, "minecraft:diamond"),
-    BOW_SHIVERING_BOW(     true, ToolMaterials.DIAMOND,   6, 14, 15f, "minecraft:diamond"),
-    BOW_SNOW_BOW(          true, ToolMaterials.IRON,      5, 16, 13f, "minecraft:iron_ingot"),
-    BOW_SOUL_BOW(          true, ToolMaterials.IRON,      6, 14, 15f, "minecraft:iron_ingot"),
-    BOW_TRICKBOW(          true, ToolMaterials.DIAMOND,   5, 12, 12f, "minecraft:diamond"),
-    BOW_TWIN_BOW(          true, ToolMaterials.DIAMOND,   5, 12, 12f, "minecraft:diamond"),
-    BOW_TWISTING_VINE_BOW( true, ToolMaterials.IRON,      5, 15, 13f, "minecraft:iron_ingot"),
-    BOW_VOID_BOW(          true, ToolMaterials.DIAMOND,   6, 15, 16f, "minecraft:diamond"),
-    BOW_WEB_BOW(           true, ToolMaterials.DIAMOND,   5, 15, 12f, "minecraft:diamond"),
-    BOW_WEEPING_VINE_BOW(  true, ToolMaterials.IRON,      5, 15, 13f, "minecraft:iron_ingot"),
-    BOW_WIND_BOW(          true, ToolMaterials.DIAMOND,   6, 11, 15f, "minecraft:diamond"),
-    BOW_WINTERS_TOUCH(     true, ToolMaterials.DIAMOND,   6, 15, 14f, "minecraft:diamond");
+    BOW_ANCIENT_BOW(       true, ToolMaterials.NETHERITE, 7, RangedAttackHelper.mcdw$getBowDrawSpeed(0.8f), 18f, "minecraft:netherite_scrap"),
+    BOW_BONEBOW(           true, ToolMaterials.STONE,     5, RangedAttackHelper.mcdw$getBowDrawSpeed(0.8f), 12f, "minecraft:bone"),
+    BOW_BUBBLE_BOW(        true, ToolMaterials.IRON,      5, RangedAttackHelper.mcdw$getBowDrawSpeed(0.8f), 12f, "minecraft:iron_ingot"),
+    BOW_BUBBLE_BURSTER(    true, ToolMaterials.DIAMOND,   5, RangedAttackHelper.mcdw$getBowDrawSpeed(0.8f), 13f, "minecraft:diamond"),
+    BOW_BURST_GALE_BOW(    true, ToolMaterials.DIAMOND,   6, RangedAttackHelper.mcdw$getBowDrawSpeed(0.7f), 16f, "minecraft:diamond"),
+    BOW_CALL_OF_THE_VOID(  true, ToolMaterials.NETHERITE, 6, RangedAttackHelper.mcdw$getBowDrawSpeed(0.8f), 16f, "minecraft:netherite_scrap"),
+    BOW_ECHO_OF_THE_VALLEY(true, ToolMaterials.DIAMOND,   6, RangedAttackHelper.mcdw$getBowDrawSpeed(0.7f), 16f, "minecraft:diamond"),
+    BOW_ELITE_POWER_BOW(   true, ToolMaterials.IRON,      6, RangedAttackHelper.mcdw$getBowDrawSpeed(1.0f), 15f, "minecraft:iron_ingot"),
+    BOW_GREEN_MENACE(      true, ToolMaterials.DIAMOND,   5, RangedAttackHelper.mcdw$getBowDrawSpeed(0.9f), 13f, "minecraft:diamond"),
+    BOW_HAUNTED_BOW(       true, ToolMaterials.NETHERITE, 6, RangedAttackHelper.mcdw$getBowDrawSpeed(0.9f), 16f, "minecraft:netherite_scrap"),
+    BOW_HUNTERS_PROMISE(   true, ToolMaterials.IRON,      6, RangedAttackHelper.mcdw$getBowDrawSpeed(0.8f), 16f, "minecraft:iron_ingot"),
+    BOW_HUNTING_BOW(       true, ToolMaterials.IRON,      6, RangedAttackHelper.mcdw$getBowDrawSpeed(0.8f), 15f, "minecraft:iron_ingot"),
+    BOW_LOST_SOULS(        true, ToolMaterials.NETHERITE, 6, RangedAttackHelper.mcdw$getBowDrawSpeed(0.7f), 17f, "minecraft:netherite_scrap"),
+    BOW_MASTERS_BOW(       true, ToolMaterials.IRON,      6, RangedAttackHelper.mcdw$getBowDrawSpeed(0.9f), 16f, "minecraft:iron_ingot"),
+    BOW_NOCTURNAL_BOW(     true, ToolMaterials.DIAMOND,   6, RangedAttackHelper.mcdw$getBowDrawSpeed(0.9f), 14f, "minecraft:diamond"),
+    BOW_PHANTOM_BOW(       true, ToolMaterials.DIAMOND,   6, RangedAttackHelper.mcdw$getBowDrawSpeed(0.5f), 14f, "minecraft:diamond"),
+    BOW_PINK_SCOUNDREL(    true, ToolMaterials.DIAMOND,   5, RangedAttackHelper.mcdw$getBowDrawSpeed(0.9f), 13f, "minecraft:diamond"),
+    BOW_POWER_BOW(         true, ToolMaterials.IRON,      6, RangedAttackHelper.mcdw$getBowDrawSpeed(1.0f), 14f, "minecraft:iron_ingot"),
+    BOW_SABREWING(         true, ToolMaterials.DIAMOND,   5, RangedAttackHelper.mcdw$getBowDrawSpeed(0.5f), 13f, "minecraft:diamond"),
+    BOW_SHIVERING_BOW(     true, ToolMaterials.DIAMOND,   6, RangedAttackHelper.mcdw$getBowDrawSpeed(0.8f), 15f, "minecraft:diamond"),
+    BOW_SNOW_BOW(          true, ToolMaterials.IRON,      5, RangedAttackHelper.mcdw$getBowDrawSpeed(0.5f), 13f, "minecraft:iron_ingot"),
+    BOW_SOUL_BOW(          true, ToolMaterials.IRON,      6, RangedAttackHelper.mcdw$getBowDrawSpeed(0.8f), 15f, "minecraft:iron_ingot"),
+    BOW_TRICKBOW(          true, ToolMaterials.DIAMOND,   5, RangedAttackHelper.mcdw$getBowDrawSpeed(0.7f), 12f, "minecraft:diamond"),
+    BOW_TWIN_BOW(          true, ToolMaterials.DIAMOND,   5, RangedAttackHelper.mcdw$getBowDrawSpeed(0.7f), 12f, "minecraft:diamond"),
+    BOW_TWISTING_VINE_BOW( true, ToolMaterials.IRON,      5, RangedAttackHelper.mcdw$getBowDrawSpeed(0.8f), 13f, "minecraft:iron_ingot"),
+    BOW_VOID_BOW(          true, ToolMaterials.DIAMOND,   6, RangedAttackHelper.mcdw$getBowDrawSpeed(0.8f), 16f, "minecraft:diamond"),
+    BOW_WEB_BOW(           true, ToolMaterials.DIAMOND,   5, RangedAttackHelper.mcdw$getBowDrawSpeed(0.8f), 12f, "minecraft:diamond"),
+    BOW_WEEPING_VINE_BOW(  true, ToolMaterials.IRON,      5, RangedAttackHelper.mcdw$getBowDrawSpeed(0.8f), 13f, "minecraft:iron_ingot"),
+    BOW_WIND_BOW(          true, ToolMaterials.DIAMOND,   6, RangedAttackHelper.mcdw$getBowDrawSpeed(0.7f), 15f, "minecraft:diamond"),
+    BOW_WINTERS_TOUCH(     true, ToolMaterials.DIAMOND,   6, RangedAttackHelper.mcdw$getBowDrawSpeed(0.8f), 14f, "minecraft:diamond");
 
     private final boolean isEnabled;
     private final ToolMaterial material;
@@ -71,10 +72,11 @@ public enum BowsID implements IRangedWeaponID, IInnateEnchantment {
         this.material = material;
         if (FabricLoader.getInstance().isModLoaded("ranged_weapon_api")) {
             this.projectileDamage = projectileDamage;
+            this.drawSpeed = drawSpeed;
         } else {
             this.projectileDamage = 0;
+            this.drawSpeed = 0;
         }
-        this.drawSpeed = drawSpeed;
         this.range = range;
         this.repairIngredient = repairIngredient;
     }

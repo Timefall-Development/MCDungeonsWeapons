@@ -30,8 +30,8 @@
   ],
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/mcdw",
-    "sources": "https://www.github.com/chronosacaria/MCDungeonsWeapons",
-    "issues": "https://www.github.com/chronosacaria/MCDungeonsWeapons/issues"
+    "sources": "https://www.github.com/Timefall-Development/MCDungeonsWeapons",
+    "issues": "https://www.github.com/Timefall-Development/MCDungeonsWeapons/issues"
   },
   "license": "Timefall Development License 1.2",
   "icon": "assets/mcdw/icon.png",
@@ -52,7 +52,8 @@
     "fabricloader": ">=0.14.21",
     "fabric": "*",
     "minecraft": ">=1.20.0 <=1.20.1",
-    "cloth-config2": ">=11.0.0.1"
+    "cloth-config2": ">=11.0.0.1",
+    "ranged_weapon_api": ">=2.3.4"
   },
   "breaks": {
     "ranged_weapon_api": "<2.3.4"

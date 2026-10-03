@@ -1,6 +1,6 @@
 /*
 Timefall Development License 1.2
-Copyright (c) 2020-2024. Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
+Copyright (c) 2020-2026. Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
 
 This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
 */
@@ -75,5 +75,13 @@ public class RangedAttackHelper {
             arrowVelocity = getVanillaArrowVelocity(stack, charge);
         }
         return arrowVelocity;
+    }
+
+    public static int mcdw$getBowDrawSpeed(float timeInSeconds) {
+        return (int) (20 / timeInSeconds);
+    }
+
+    public static int mcdw$getCrossbowDrawSpeed(float timeInSeconds) {
+        return (int) (20 * timeInSeconds);
     }
 }

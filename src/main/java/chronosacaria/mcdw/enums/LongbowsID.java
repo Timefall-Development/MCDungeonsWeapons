@@ -1,6 +1,6 @@
 /*
 Timefall Development License 1.2
-Copyright (c) 2020-2024. Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
+Copyright (c) 2020-2026. Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
 
 This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
 */
@@ -9,6 +9,7 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
+import chronosacaria.mcdw.api.util.RangedAttackHelper;
 import chronosacaria.mcdw.bases.McdwLongbow;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.registries.ItemsRegistry;
@@ -28,10 +29,10 @@ import java.util.Map;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum LongbowsID implements IRangedWeaponID, IInnateEnchantment {
-    BOW_GUARDIAN_BOW(true, ToolMaterials.DIAMOND, 8, 30, 19f, "minecraft:diamond"),
-    BOW_LONGBOW(     true, ToolMaterials.IRON,    7, 25, 17f, "minecraft:planks"),
-    BOW_RED_SNAKE(   true, ToolMaterials.DIAMOND, 7, 30, 18f, "minecraft:diamond");
-
+    BOW_GUARDIAN_BOW(true, ToolMaterials.DIAMOND, RangedAttackHelper.mcdw$getBowDrawSpeed(2.0f), RangedAttackHelper.mcdw$getBowDrawSpeed(2.00f), 19f, "minecraft:diamond"),
+    BOW_LONGBOW(     true, ToolMaterials.IRON,    RangedAttackHelper.mcdw$getBowDrawSpeed(2.0f), RangedAttackHelper.mcdw$getBowDrawSpeed(1.65f), 17f, "minecraft:planks"),
+    BOW_RED_SNAKE(   true, ToolMaterials.DIAMOND, RangedAttackHelper.mcdw$getBowDrawSpeed(2.0f), RangedAttackHelper.mcdw$getBowDrawSpeed(2.00f), 18f, "minecraft:diamond");
+// Draw speed = 9
     public final boolean isEnabled;
     public final ToolMaterial material;
     public final double projectileDamage;
@@ -44,10 +45,11 @@ public enum LongbowsID implements IRangedWeaponID, IInnateEnchantment {
         this.material = material;
         if (FabricLoader.getInstance().isModLoaded("ranged_weapon_api")) {
             this.projectileDamage = projectileDamage;
+            this.drawSpeed = drawSpeed;
         } else {
             this.projectileDamage = 0;
+            this.drawSpeed = 0;
         }
-        this.drawSpeed = drawSpeed;
         this.range = range;
         this.repairIngredient = repairIngredient;
     }

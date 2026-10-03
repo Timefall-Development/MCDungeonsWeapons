@@ -1,6 +1,6 @@
 /*
 Timefall Development License 1.2
-Copyright (c) 2020-2024. Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
+Copyright (c) 2020-2026. Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
 
 This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
 */
@@ -9,6 +9,7 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
+import chronosacaria.mcdw.api.util.RangedAttackHelper;
 import chronosacaria.mcdw.bases.McdwCrossbow;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.registries.ItemsRegistry;
@@ -28,35 +29,41 @@ import java.util.Map;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum CrossbowsID implements IRangedWeaponID, IInnateEnchantment {
-    CROSSBOW_AUTO_CROSSBOW(          true, ToolMaterials.IRON,      9,  28, 8.0f,  "minecraft:iron_ingot"),
-    CROSSBOW_AZURE_SEEKER(           true, ToolMaterials.IRON,      10, 28, 8.4f,  "minecraft:iron_ingot"),
-    CROSSBOW_BABY_CROSSBOW(          true, ToolMaterials.IRON,      8,  23, 7.2f,  "minecraft:iron_ingot"),
-    CROSSBOW_BURST_CROSSBOW(         true, ToolMaterials.IRON,      9,  28, 8.0f,  "minecraft:iron_ingot"),
-    CROSSBOW_BUTTERFLY_CROSSBOW(     true, ToolMaterials.IRON,      10, 28, 8.9f,  "minecraft:iron_ingot"),
-    CROSSBOW_COG_CROSSBOW(           true, ToolMaterials.IRON,      10, 28, 8.4f,  "minecraft:iron_ingot"),
-    CROSSBOW_CORRUPTED_CROSSBOW(     true, ToolMaterials.NETHERITE, 16, 22, 14.0f, "minecraft:netherite_scrap"),
-    CROSSBOW_DOOM_CROSSBOW(          true, ToolMaterials.NETHERITE, 9,  26, 8.0f,  "minecraft:netherite_scrap"),
-    CROSSBOW_DUAL_CROSSBOW(          true, ToolMaterials.IRON,      8,  24, 7.0f,  "minecraft:iron_ingot"),
-    CROSSBOW_EXPLODING_CROSSBOW(     true, ToolMaterials.IRON,      9,  28, 8.0f,  "minecraft:iron_ingot"),
-    CROSSBOW_FERAL_SOUL_CROSSBOW(    true, ToolMaterials.IRON,      10, 28, 9.2f,  "minecraft:iron_ingot"),
-    CROSSBOW_FIREBOLT_THROWER(       true, ToolMaterials.IRON,      9,  28, 7.9f,  "minecraft:iron_ingot"),
-    CROSSBOW_HARPOON_CROSSBOW(       true, ToolMaterials.IRON,      12, 28, 11.0f, "minecraft:iron_ingot"),
-    CROSSBOW_HARP_CROSSBOW(          true, ToolMaterials.IRON,      10, 28, 8.6f,  "minecraft:iron_ingot"),
-    CROSSBOW_HEAVY_CROSSBOW(         true, ToolMaterials.IRON,      9,  28, 8.0f,  "minecraft:iron_ingot"),
-    CROSSBOW_IMPLODING_CROSSBOW(     true, ToolMaterials.IRON,      9,  28, 8.0f,  "minecraft:iron_ingot"),
-    CROSSBOW_LIGHTNING_HARP_CROSSBOW(true, ToolMaterials.DIAMOND,   16, 28, 14.2f, "minecraft:diamond"),
-    CROSSBOW_NAUTICAL_CROSSBOW(      true, ToolMaterials.DIAMOND,   16, 24, 14.0f, "minecraft:diamond"),
-    CROSSBOW_PRIDE_OF_THE_PIGLINS(   true, ToolMaterials.NETHERITE, 15, 20, 13.0f, "minecraft:netherite_scrap"),
-    CROSSBOW_RAPID_CROSSBOW(         true, ToolMaterials.IRON,      9,  20, 8.2f,  "minecraft:iron_ingot"),
-    CROSSBOW_SCATTER_CROSSBOW(       true, ToolMaterials.IRON,      9,  28, 8.0f,  "minecraft:iron_ingot"),
-    CROSSBOW_SHADOW_CROSSBOW(        true, ToolMaterials.DIAMOND,   14, 25, 12.0f, "minecraft:diamond"),
-    CROSSBOW_SLAYER_CROSSBOW(        true, ToolMaterials.DIAMOND,   10, 26, 8.8f,  "minecraft:diamond"),
-    CROSSBOW_SOUL_CROSSBOW(          true, ToolMaterials.IRON,      9,  28, 8.0f,  "minecraft:iron_ingot"),
-    CROSSBOW_SOUL_HUNTER_CROSSBOW(   true, ToolMaterials.DIAMOND,   12, 28, 11.0f, "minecraft:diamond"),
-    CROSSBOW_SPELLBOUND_CROSSBOW(    true, ToolMaterials.IRON,      10, 28, 8.9f,  "minecraft:iron_ingot"),
-    CROSSBOW_THE_SLICER(             true, ToolMaterials.IRON,      12, 28, 10.2f, "minecraft:iron_ingot"),
-    CROSSBOW_VEILED_CROSSBOW(        true, ToolMaterials.DIAMOND,   16, 22, 14.5f, "minecraft:diamond"),
-    CROSSBOW_VOIDCALLER_CROSSBOW(    true, ToolMaterials.DIAMOND,   14, 26, 12.5f, "minecraft:diamond");
+    // Normal Crossbows
+    CROSSBOW_AZURE_SEEKER(           true, ToolMaterials.IRON,      10, RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.4f), 8.5f,  "minecraft:iron_ingot"),
+    CROSSBOW_BURST_CROSSBOW(         true, ToolMaterials.IRON,      9,  RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.4f), 8.0f,  "minecraft:iron_ingot"),
+    CROSSBOW_CORRUPTED_CROSSBOW(     true, ToolMaterials.NETHERITE, 16, RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.1f), 14.0f, "minecraft:netherite_scrap"),
+    CROSSBOW_FERAL_SOUL_CROSSBOW(    true, ToolMaterials.IRON,      10, RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.4f), 9.0f,  "minecraft:iron_ingot"),
+    CROSSBOW_HARP_CROSSBOW(          true, ToolMaterials.IRON,      10, RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.4f), 8.5f,  "minecraft:iron_ingot"),
+    CROSSBOW_LIGHTNING_HARP_CROSSBOW(true, ToolMaterials.DIAMOND,   16, RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.4f), 14.0f, "minecraft:diamond"),
+    CROSSBOW_SCATTER_CROSSBOW(       true, ToolMaterials.IRON,      9,  RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.4f), 8.0f,  "minecraft:iron_ingot"),
+    CROSSBOW_SHADOW_CROSSBOW(        true, ToolMaterials.DIAMOND,   14, RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.2f), 12.0f, "minecraft:diamond"),
+    //CROSSBOW_SHRIEKING_CROSSBOW
+    CROSSBOW_SOUL_CROSSBOW(          true, ToolMaterials.IRON,      9,  RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.4f), 8.0f,  "minecraft:iron_ingot"),
+    CROSSBOW_SOUL_HUNTER_CROSSBOW(   true, ToolMaterials.DIAMOND,   12, RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.4f), 11.0f, "minecraft:diamond"),
+    CROSSBOW_THE_SLICER(             true, ToolMaterials.IRON,      12, RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.4f), 10.0f, "minecraft:iron_ingot"),
+    CROSSBOW_VEILED_CROSSBOW(        true, ToolMaterials.DIAMOND,   16, RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.2f), 14.5f, "minecraft:diamond"),
+    CROSSBOW_VOIDCALLER_CROSSBOW(    true, ToolMaterials.DIAMOND,   14, RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.3f), 12.5f, "minecraft:diamond"),
+
+    // Light Crossbows
+    CROSSBOW_AUTO_CROSSBOW(          true, ToolMaterials.IRON,      9,  RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.4f), 8.0f,  "minecraft:iron_ingot"),
+    CROSSBOW_BABY_CROSSBOW(          true, ToolMaterials.IRON,      8,  RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.2f), 7.0f,  "minecraft:iron_ingot"),
+    CROSSBOW_BUTTERFLY_CROSSBOW(     true, ToolMaterials.IRON,      10, RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.4f), 9.0f,  "minecraft:iron_ingot"),
+    CROSSBOW_COG_CROSSBOW(           true, ToolMaterials.IRON,      10, RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.4f), 8.5f,  "minecraft:iron_ingot"),
+    CROSSBOW_DUAL_CROSSBOW(          true, ToolMaterials.IRON,      8,  RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.2f), 7.0f,  "minecraft:iron_ingot"),
+    CROSSBOW_PRIDE_OF_THE_PIGLINS(   true, ToolMaterials.NETHERITE, 15, RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.0f), 13.0f, "minecraft:netherite_scrap"),
+    CROSSBOW_RAPID_CROSSBOW(         true, ToolMaterials.IRON,      9,  RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.0f), 8.0f,  "minecraft:iron_ingot"),
+    CROSSBOW_SPELLBOUND_CROSSBOW(    true, ToolMaterials.IRON,      10, RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.4f), 9.0f,  "minecraft:iron_ingot"),
+
+    // Heavy Crossbows
+    CROSSBOW_DOOM_CROSSBOW(          true, ToolMaterials.NETHERITE, 9,  RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.3f), 8.0f,  "minecraft:netherite_scrap"),
+    CROSSBOW_EXPLODING_CROSSBOW(     true, ToolMaterials.IRON,      9,  RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.4f), 8.0f,  "minecraft:iron_ingot"),
+    CROSSBOW_FIREBOLT_THROWER(       true, ToolMaterials.IRON,      9,  RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.4f), 8.0f,  "minecraft:iron_ingot"),
+    CROSSBOW_HARPOON_CROSSBOW(       true, ToolMaterials.IRON,      12, RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.4f), 11.0f, "minecraft:iron_ingot"),
+    CROSSBOW_HEAVY_CROSSBOW(         true, ToolMaterials.IRON,      9,  RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.4f), 8.0f,  "minecraft:iron_ingot"),
+    CROSSBOW_IMPLODING_CROSSBOW(     true, ToolMaterials.IRON,      9,  RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.4f), 8.0f,  "minecraft:iron_ingot"),
+    CROSSBOW_NAUTICAL_CROSSBOW(      true, ToolMaterials.DIAMOND,   16, RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.2f), 14.0f, "minecraft:diamond"),
+    CROSSBOW_SLAYER_CROSSBOW(        true, ToolMaterials.DIAMOND,   10, RangedAttackHelper.mcdw$getCrossbowDrawSpeed(1.3f), 9.0f,  "minecraft:diamond");
 
     private final boolean isEnabled;
     private final ToolMaterial material;
@@ -70,10 +77,11 @@ public enum CrossbowsID implements IRangedWeaponID, IInnateEnchantment {
         this.material = material;
         if (FabricLoader.getInstance().isModLoaded("ranged_weapon_api")) {
             this.projectileDamage = projectileDamage;
+            this.drawSpeed = drawSpeed;
         } else {
             this.projectileDamage = 0;
+            this.drawSpeed = 0;
         }
-        this.drawSpeed = drawSpeed;
         this.range = range;
         this.repairIngredient = repairIngredient;
     }
